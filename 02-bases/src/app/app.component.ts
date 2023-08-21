@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  public title: string = 'pets page';
+  public title: string = 'counters page';
   public counter: number= 10;
 
   increaseBy( value: number): void {
