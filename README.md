@@ -6,18 +6,24 @@
 - initialize a projects (2 ways): 
     - `npm init @angular myApp`
     - `ng new my-app`
+
 - help
     - `ng --help`
     - `ng generate --help`
     - `ng build --help`
+
 - serve
     - `ng serve`
+
 - angular file:
     - `angular.json`
+
 - tree-shaking
     - is a concept that means: remove all not required when building
+
 - each folder inside `app` is a component
     - Component help `ng g component --help` 
+
 - Create a component `ng g c heroes/hero`
     - this creates `hero.component.css` // styles appplied only to the component
     - and creates `hero.component.html`
@@ -26,6 +32,23 @@
     - registers the component, under `app.module.ts` (`@NgModule` at `declarations`)
 - create another component `ng g c heroes/list`
     
+## scripts
+
+- `ng: ng`
+- `start: ng serve -o`
+- `build: ng build`
+- `watch: ng build --watch --configuration development`
+- `test: ng test`
+
+### two way data binding
+
+- a change in a template, will also change the public property
+- the idea is prioritize the one-way data binding
+
+### private modified in a component
+
+- When using provate, the method cannot be used outside of the class
+
 
 ## Modern Tools for efficient development
 

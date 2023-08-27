@@ -10,18 +10,18 @@
     <td>Age:</td>
     <dd>{{age}}</dd>
 
-    <td>Metodo</td>
-    <dd>some method</dd>
+    <td>Method</td>
+    <dd>{{ getHeroDescription() }}</dd>
 
     <td>Capitalized</td>
-    <dd>capitalized name</dd>
+    <dd>{{ capitalizedName }}</dd>
 
 </dl>
 
-<button class="btn btn-primary mx-2">
+<button class="btn btn-primary mx-2" (click)="changeHero()">
     change name
 </button>
 
-<button class="btn btn-primary mx-2">
+<button class="btn btn-primary mx-2" (click)="changeAge()">
     change age
 </button>
