@@ -49,6 +49,65 @@
 
 - When using provate, the method cannot be used outside of the class
 
+### no DOM javascript in Angular
+
+- if dom is manipulated, when working with angular, some memory leak problems may happen, so it's not recommended
+- angular has its own libs for dom manipulation
+
+
+### components dissapear (*ngIf)
+
+- `*ngIf="false"`
+- `*ngIf === "Spiderman"`
+- `<button *ngIf="name !== 'batman'" class="btn btn-primary mx-2" (click)="changeHero()">`
+- `*ngIf="age !== '25'"`
+
+- Example:
+    - conditional components:
+        ```js
+        <div *ngIf="deletedHero">
+            <h2 class="text-danger">Deleted Hero: {{ deletedHero }}</h2>
+        </div>
+
+        <h2 *ngIf="!deletedHero">no deletions...</h2>
+        ```
+
+    - better approach using ng-template and local reference:
+        - local reference is the workd with the hashtag symbol `#nothingWasDeleted` in this case
+        ```js
+        <ul class="list-group my-2">
+            <li *ngFor="let name of heroNames" class="list-group-item">{{name}}</li>
+        </ul>
+
+        <div *ngIf="deletedHero else nothingWasDeleted">
+            <h2 class="text-danger">Deleted Hero: {{ deletedHero }}</h2>
+        </div>
+
+        <ng-template #nothingWasDeleted>
+            <h2 *ngIf="!deletedHero">no deletions...</h2>
+        </ng-template>
+
+        <button *ngIf="heroNames.length > 0" (click)="removeLastHero()" class="btn btn-danger btn-sm">
+            Delete Hero
+        </button>
+        ```
+
+### component irteration (*ngFor)
+
+- `<li *ngFor="let name of heroNames" class="list-group-item">{{name}}</li>`
+
+### ng-template
+
+- `<ng-template>` is like having a <> that does not affect the html rendered into the page
+
+### modules ins angular
+
+- a module in angular, is a class with a decorator
+- a module works like a grouper that encapsulates functionalities, protected it from the external world and easier to share
+
+
+
+
 
 ## Modern Tools for efficient development
 

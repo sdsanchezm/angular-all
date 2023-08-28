@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
     templateUrl: './hero.component.html',
     styleUrls: ['./hero.component.css']
 })
+
 export class HeroComponent {
     public title: string = 'Hero Page';
 
@@ -34,11 +35,10 @@ export class HeroComponent {
         this.age = newAge.toString();
     }
 
+    resetForm() {
+        this.name = "ironman";
+        this.age = "33"
+    }
+
 }
 
-enum HeroToChoose {
-    "batman",
-    "superman",
-    "hulk",
-    "loki"
-}

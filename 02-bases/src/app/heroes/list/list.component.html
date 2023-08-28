@@ -1,3 +1,26 @@
-<p>list component!</p>
+<h1>=== list component!</h1>
 <h1>{{title}}</h1>
+
+<ul class="list-group">
+    <li class="list-group-item bg">spiderman</li>
+    <li class="list-group-item">hulk</li>
+    <li class="list-group-item">thor</li>
+</ul>
+
+<ul class="list-group my-2">
+    <li *ngFor="let name of heroNames" class="list-group-item">{{name}}</li>
+</ul>
+
+<div *ngIf="deletedHero else nothingWasDeleted">
+    <h2 class="text-danger">Deleted Hero: {{ deletedHero }}</h2>
+</div>
+
+<ng-template #nothingWasDeleted>
+    <h2 *ngIf="!deletedHero">no deletions...</h2>
+</ng-template>
+
+<button *ngIf="heroNames.length > 0" (click)="removeLastHero()" class="btn btn-danger btn-sm">
+    Delete Hero
+</button>
+
 <hr>
