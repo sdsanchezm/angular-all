@@ -106,7 +106,8 @@
 - a module works like a grouper that encapsulates functionalities, protected it from the external world and easier to share
 
 
-## FileSystem recommended in angular
+## FileSystem recommended in angular (of a component)
+
 
 - `ng g m <name>`
 - then create the FS
@@ -116,6 +117,10 @@
     - services
     - interfaces
 
+## Create a component from CLI
+
+- `ng g c .\dbz\components\list`
+- `ng g c .\dbz\components\addCharacter`
 
 
 
