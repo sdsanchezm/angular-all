@@ -2,22 +2,22 @@ import { Component } from '@angular/core';
 
 // this is adecorator that transform the class into a component
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html'
+    selector: 'app-root',
+    templateUrl: './app.component.html'
 })
 export class AppComponent {
-  public title: string = 'counters page';
-  public counter: number= 10;
+    public title: string = 'counters page';
+    public counter: number = 10;
 
-  increaseBy( value: number): void {
-    this.counter += value;
-  }
+    increaseBy(value: number): void {
+        this.counter += value;
+    }
 
-  decreaseBy(): void {
-    this.counter -= 1;
-  }
+    decreaseBy(): void {
+        this.counter -= 1;
+    }
 
-  resetButton(): void{
-    this.counter = 10;
-  }
+    resetButton(): void {
+        this.counter = 10;
+    }
 }

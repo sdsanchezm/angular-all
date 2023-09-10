@@ -92,7 +92,7 @@
         </button>
         ```
 
-### component irteration (*ngFor)
+### component iteration (*ngFor)
 
 - `<li *ngFor="let name of heroNames" class="list-group-item">{{name}}</li>`
 
@@ -105,6 +105,16 @@
 - a module in angular, is a class with a decorator
 - a module works like a grouper that encapsulates functionalities, protected it from the external world and easier to share
 
+
+## FileSystem recommended in angular
+
+- `ng g m <name>`
+- then create the FS
+    - components
+    - pages 
+        - (components that contains more components)
+    - services
+    - interfaces
 
 
 
