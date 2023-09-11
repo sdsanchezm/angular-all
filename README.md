@@ -250,6 +250,11 @@ export class ListComponent {
 
      ```
 
+### Installed uuid package
+
+- `npm i uuid`
+- `npm i --save-dev @types/uuid`
+
 
 - VsCode plugins:
     - [https://marketplace.visualstudio.com/items?itemName=Angular.ng-template]

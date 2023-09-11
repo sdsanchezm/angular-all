@@ -10,7 +10,7 @@ import { Character } from '../../interfaces/character.interface';
 export class ListComponent {
 
     @Output()
-    public onDeleteCharacter = new EventEmitter<number>(); // same as below
+    public onDeleteCharacter = new EventEmitter<string>(); // same as below
     // public onDeleteCharacter: EventEmitter<number> = new EventEmitter(); // same as above
 
     @Input()
@@ -21,9 +21,19 @@ export class ListComponent {
         }
     ]
 
-    onDeleteCharacter_emiter(index: number): void {
-        console.log({index});
-        this.onDeleteCharacter.emit(index);
+    onDeleteCharacter_emiter(id?: string): void {
+
+        if (!id) return;
+
+        console.log({id});
+
+        this.onDeleteCharacter.emit(id);
 
     }
+
+    // onDeleteCharacter_emiter(index: number): void {
+    //     console.log({index});
+    //     this.onDeleteCharacter.emit(index);
+
+    // }
 }
