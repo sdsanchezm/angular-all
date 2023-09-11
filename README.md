@@ -235,6 +235,21 @@ export class ListComponent {
         }
     ```
 
+## Services
+
+- [https://angular.io/guide/singleton-services]
+- 
+     ```ts
+    import { Injectable } from '@angular/core';
+
+    @Injectable({providedIn: 'root'})
+    export class ServiceNameService {
+        constructor() { }
+
+    }
+
+     ```
+
 
 - VsCode plugins:
     - [https://marketplace.visualstudio.com/items?itemName=Angular.ng-template]
