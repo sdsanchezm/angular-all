@@ -23,4 +23,14 @@ export class MainPageComponent {
         }
     ]
 
+    onNewCharacter2(character: Character): void {
+        console.log('MainPage');
+        console.log(character);
+        // add a new character at the end
+        this.characters.push(character);
+
+        // add a new character at the beggining
+        // this.characters.unshift(character);
+    }
+
 }

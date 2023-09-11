@@ -224,6 +224,16 @@ export class ListComponent {
 - Angular CLI [https://angular.io/cli]
     - Install `npm install -g @angular/cli`
         
+## submit form in angular
+
+- `<form class="row" (ngSubmit)="emitCharacter()">`
+    - 
+    ```ts
+        emitCharacter(): void
+        {
+            console.log(this.character);
+        }
+    ```
 
 
 - VsCode plugins:
@@ -239,6 +249,9 @@ export class ListComponent {
 - `()` -> event
 - `[]` -> attribute
 - `[()]` -> event and attribute at the same time, meaning: 2-way data binding
+- include the keyword `debugger;` in the code to make stop the execution and explore in the browser
+
+
 
 
 

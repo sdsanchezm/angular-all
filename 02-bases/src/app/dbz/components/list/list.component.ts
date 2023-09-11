@@ -16,4 +16,10 @@ export class ListComponent {
             power: 5000
         }
     ]
+
+    onDeleteCharacter(index: number): void {
+        // todo emit
+        console.log({index});
+
+    }
 }
