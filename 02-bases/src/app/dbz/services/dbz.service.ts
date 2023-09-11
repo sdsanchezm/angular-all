@@ -30,10 +30,11 @@ export class DbzService {
     ]
 
     onNewCharacter2(character: Character): void {
+
+        const newCharacter: Character = { ...character, id: uuid() };
+
         console.log('MainPage');
         console.log(character);
-
-        const newCharacter: Character = { id: uuid(), ...character };
 
         // add a new character at the end
         this.characters.push(newCharacter);
