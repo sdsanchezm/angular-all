@@ -4,7 +4,9 @@
 
     <div class="col">
 
-        <app-dbz-list [characterList]="characters"> </app-dbz-list>
+        <app-dbz-list
+        (onDeleteCharacter)="onDeleteCharacter2($event)"
+        [characterList]="characters"> </app-dbz-list>
 
     </div>
 

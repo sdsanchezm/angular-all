@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
 import { Character } from "../interfaces/character.interface";
 
 @Component({
@@ -31,6 +31,11 @@ export class MainPageComponent {
 
         // add a new character at the beggining
         // this.characters.unshift(character);
+    }
+
+    onDeleteCharacter2(index: number):void {
+        console.log("on Delete here");
+        this.characters.splice(index, 1);
     }
 
 }
