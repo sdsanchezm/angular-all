@@ -1,5 +1,23 @@
 <form class="row">
-    <input class="form-control mb-2" type="text" placeholder="Name">
-    <input class="form-control mb-2" type="poder" placeholder="Poder">
-    <button type="submit" class="btn btn-primary">Add</button>
+    <input
+    type="text"
+    [(ngModel)]="character.name"
+    class="form-control mb-2"
+    placeholder="Name"
+    name="name">
+
+    <input
+    [(ngModel)]="character.power"
+    class="form-control mb-2"
+    type="number"
+    placeholder="Poder"
+    name="power">
+
+    <button
+    (click)="emitCharacter()"
+    type="submit"
+    class="btn btn-primary">Add</button>
+
+    <pre>{{character | json}}</pre>
+
 </form>

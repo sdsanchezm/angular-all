@@ -123,6 +123,92 @@
 - `ng g c .\dbz\components\addCharacter`
 
 
+## ngFor example
+
+- Code Example
+```ts
+    <li *ngFor="
+    let character of characterList;
+    let i = index;
+    let isFirst = first;
+    let isLast = last;
+    let isEven = even;
+    let isOdd = odd;
+    " class="list-group-item">
+        <span class="text-primary">{{ i+1 }}. </span>
+        <span class="fw-bold">{{character.name}} -> {{character.power}}</span>
+        <span class="text-secondary"> is first?: {{ isFirst }}</span>
+        <span class="text-secondary"> is last?: {{ isLast }}</span>
+        <span class="text-secondary"> is even?: {{ isEven }}</span>
+        <span class="text-secondary"> is odd?: {{ isOdd }}</span>
+    </li>
+```
+
+## [class] in angular usage
+
+- Example code
+
+```ts
+    " [class]="'list-group-item'"
+```
+
+## ngClass usage
+
+- Example code
+```ts
+    <li *ngFor="
+    let character of characterList;
+    let i = index;
+    let isFirst = first;
+    let isLast = last;
+    let isEven = even;
+    let isOdd = odd;
+    " class="list-group-item"
+    [ngClass]="{
+        'list-group-item-success': isLast,
+        'list-group-item-primary': isEven
+}">
+    <!-- " class="list-group-item {{ i === 0 ? 'list-group-item-success' : '' }}"> -->
+    <!-- " class="list-group-item list-group-item-success"> -->
+        <span class="text-primary">{{ i+1 }}. </span>
+        <span class="fw-bold">{{character.name}} -> {{character.power}}</span>
+        <span class="text-secondary"> is first?: {{ isFirst }}</span>
+        <span class="text-secondary"> is last?: {{ isLast }}</span>
+        <span class="text-secondary"> is even?: {{ isEven }}</span>
+        <span class="text-secondary"> is odd?: {{ isOdd }}</span>
+    </li>
+```
+
+
+## @Input() Example
+
+- `@Input()` this decorator, indicates that the component can receive a property named: "characterList"
+- `@Input('asd')` there also can be a name here
+- example code
+
+```ts
+export class ListComponent {
+
+    @Input()
+    public characterList: Character[] = [
+        {
+            name: 'Jamecho',
+            power: 5000
+        }
+    ]
+}
+```
+
+- to use it in a component: (tag: `app-dbz-list`)
+
+```ts
+<app-dbz-list [characterList]="characters"> </app-dbz-list>
+```
+- `character` comes from here:
+```ts
+<li *ngFor="
+    let character of characterList;
+```
 
 ## Modern Tools for efficient development
 
@@ -145,4 +231,14 @@
     - Angular Snippets [https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2]
 
 - Source: [https://gist.github.com/Klerith/4816679624c1cb528f8e05d902fd7cff]
+
+
+## misc
+
+- each component should be self-sufficient (lowly coupling) , they should import details by themselves
+- `()` -> event
+- `[]` -> attribute
+- `[()]` -> event and attribute at the same time, meaning: 2-way data binding
+
+
 
