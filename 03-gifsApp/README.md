@@ -24,7 +24,7 @@
 
 - Add the imports to the app.module.ts file
     - 
-    ```
+    ```ts
     imports: [
         BrowserModule,
         GifsModule,
@@ -32,7 +32,7 @@
     ],
     ```
     - and 
-    ```
+    ```ts
     import { GifsModule } from './gifs/gifs.module';
     ```
 - Generate a new component into the shared folder:
@@ -43,7 +43,7 @@
 
 - Update the parent module to include the new module created:
     - "shared/shared.module.ts" file:
-    ```
+    ```ts
       exports: [
         SidebarComponent
     ]
@@ -76,5 +76,52 @@
     - ensure that the parent module `gifs.module.ts` includes the `CardListComponent` in the declaration
 
 
+## Nice form behaviour
+
+- handle the enter and data in forms
+```html
+<input
+    type="text"
+    class="form-control"
+    placeholder="Search..."
+    (keyup.enter)="searchTag(txtTagInput.value)"
+    #txtTagInput
+>
+```
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+    selector: 'gifs-search-box',
+    templateUrl: 'search-box.component.html'
+})
+
+export class SearchBoxComponent {
+
+    constructor() { }
+
+    searchTag(newTag: string) {
+        console.log({newTag});
+    }
+}
+
+```
+
+## Creating a service
+
+- create the file `gifs.service.ts` into "gifs/services"
+- looks liek this:
+```
+import { Injectable } from '@angular/core';
+
+@Injectable({providedIn: 'root'})
+export class GifsService {
+    constructor() { }
+
+}
+```
+
+- the snippet `@Injectable({providedIn: 'root'})` is for the service to have access to all components and viceversa
 
 

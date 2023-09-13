@@ -1,3 +1,10 @@
 <h5>Search</h5>
-<input type="text" class="form-control" placeholder="Search...">
+
+<input
+    type="text"
+    class="form-control"
+    placeholder="Search..."
+    (keyup.enter)="searchTag()"
+    #txtTagInput
+>
 
