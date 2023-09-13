@@ -13,8 +13,29 @@ export class GifsService {
         return [...this._tagsHistory];
     }
 
-    searchTags(tag: string):void {
+    cleanedTag(tag: string) {
+
+        tag = tag.toLowerCase();
+
+        if (this._tagsHistory.includes(tag)){
+            this._tagsHistory = this._tagsHistory.filter( p => p !== tag);
+        }
+
         this._tagsHistory.unshift( tag );
+        this._tagsHistory = this.tagsHistory.splice(0, 10);
+        // this._tagsHistory.pop();
+
+    }
+
+    searchTags(tag: string):void {
+
+        if (tag.length === 0) return;
+
+        this.cleanedTag(tag);
+
+
+
+
     }
 
 

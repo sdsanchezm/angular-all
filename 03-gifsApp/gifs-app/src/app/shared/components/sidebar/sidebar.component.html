@@ -6,8 +6,8 @@
 
     <div class="list-group list-reset">
 
-        <button class="list-group-item list-group-item-action">
-            CoD
+        <button *ngFor="let gif of gifs;" class="list-group-item list-group-item-action">
+            {{ gif | titlecase }}
         </button>
 
     </div>"

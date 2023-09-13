@@ -112,7 +112,7 @@ export class SearchBoxComponent {
 
 - create the file `gifs.service.ts` into "gifs/services"
 - looks liek this:
-```
+```ts
 import { Injectable } from '@angular/core';
 
 @Injectable({providedIn: 'root'})
@@ -125,3 +125,24 @@ export class GifsService {
 - the snippet `@Injectable({providedIn: 'root'})` is for the service to have access to all components and viceversa
 
 
+## consumig a service in a component
+
+- here, the service was injected, created a public property and created a getter so the property can be used in the template
+    ```ts
+    export class SidebarComponent {
+
+        constructor(private gifsService: GifsService ) {}
+        get gifs() {
+            return this.gifsService.tagsHistory;
+        }
+
+        public kk1: string[] = ["asd", "qwe"];
+    }
+    ```
+- This is how the ngFor is used:
+    - 
+    ```html
+        <button *ngFor="let gif of gifs;" class="list-group-item list-group-item-action">
+            {{ gif | titlecase }}
+        </button>
+    ```
