@@ -6,7 +6,10 @@
 
     <div class="list-group list-reset">
 
-        <button *ngFor="let gif of gifs;" class="list-group-item list-group-item-action">
+        <button
+        *ngFor="let gif of gifs;"
+        class="list-group-item list-group-item-action"
+        (click)="searchTagFromPreviousSearch(gif)">
             {{ gif | titlecase }}
         </button>
 

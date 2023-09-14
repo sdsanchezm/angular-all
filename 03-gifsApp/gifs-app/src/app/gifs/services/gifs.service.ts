@@ -44,7 +44,6 @@ export class GifsService {
         .set('q', tag)
         .set('limit', '2')
 
-
         this.http.get<SearchResponse>(`${env_dev.api_url}`, { params })
         .subscribe( res => {
             console.log( res );
