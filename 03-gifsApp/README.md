@@ -146,3 +146,41 @@ export class GifsService {
             {{ gif | titlecase }}
         </button>
     ```
+
+## Environment Variables
+
+- Create a `environment/env.dev.ts` file
+    ```ts
+    export const env_dev = {
+        api_key: 'blablabla',
+        api_url: 'https://somne-end-point/q/'
+    }
+    ```
+- call it from services
+    ```ts
+    import { env_dev } from 'src/environment/env.dev';
+    ```
+- add the `environment` folder to the .gitignore file
+    ```
+    # environment
+    environment/
+    ```
+
+## importing httpClient
+
+- should be imported in the `app.module.ts` file
+    - `import { HttpClientModule } from '@angular/common/http';`
+    - also, registered into the imports in the same file
+    - Modules are imported into the "imports" array in the module file
+
+
+- Import the module
+    - `import { HttpClient } from '@angular/common/http';`
+
+- Make the DI (dep Injection in the service)
+    - `constructor( private http: HttpClient ) { }`
+
+
+
+
+
