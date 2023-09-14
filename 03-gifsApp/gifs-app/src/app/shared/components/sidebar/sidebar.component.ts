@@ -12,12 +12,12 @@ export class SidebarComponent {
 
     constructor(private gifsService: GifsService ) {}
 
-    get gifs() {
+    get gifs(): string[] {
         return this.gifsService.tagsHistory;
     }
 
-    searchTagFromPreviousSearch(previouslySeachedTag: string) {
-        this.gifsService.searchTags(previouslySeachedTag);
+    searchTagFromPreviousSearch( previouslySeachedTag: string ):void {
+        this.gifsService.searchTags( previouslySeachedTag );
     }
 
     // testing public property here

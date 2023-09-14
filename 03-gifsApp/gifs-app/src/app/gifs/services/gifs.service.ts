@@ -14,7 +14,11 @@ export class GifsService {
 
     private _tagsHistory: string[] = [];
 
-    constructor( private http: HttpClient ) { }
+    constructor( private http: HttpClient ) {
+        this.loadfLocalStorage();
+        console.log("data loaded!");
+
+     }
 
     get tagsHistory() {
         // in js, arrays pass by reference, so a copy of the object is required (and that's why a spread operator is needed)
@@ -32,6 +36,7 @@ export class GifsService {
         this._tagsHistory.unshift( tag );
         this._tagsHistory = this.tagsHistory.splice(0, 10);
         // this._tagsHistory.pop();
+        this.saveLocalStorage();
     }
 
 
@@ -49,10 +54,22 @@ export class GifsService {
             console.log( res );
             this.gifList = res.data;
             console.log(res.data);
-
             console.log({gifs: this.gifList});
-
         })
+    }
+
+    private saveLocalStorage():void {
+        localStorage.setItem('history', JSON.stringify( this._tagsHistory ));
+    }
+
+    private loadfLocalStorage():void {
+        if ( !localStorage.getItem('history') ) return;
+
+        console.log("no info in local storage");
+        this._tagsHistory = JSON.parse( localStorage.getItem('history')! );
+
+        if ( this._tagsHistory.length === 0 ) return;
+        this.searchTags( this._tagsHistory[0] );
 
     }
 

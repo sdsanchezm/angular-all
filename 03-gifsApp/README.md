@@ -243,6 +243,24 @@ export class GifsService {
     })
     ```
 
+## Web Browser Storage
+
+### LocalStorage
+- storage persist, even if the tab is closed or broser closed
+- approx 50MB
+- data visible in only the specific host for which it was created
+
+### sessionStorage
+
+- if tab or browser is closed, data is removed
+- approx 50MB
+
+### Cookies
+
+- a few Kb of info
+- shared information between backend or frontend (GET, POST, etc)
+- is part of the headers of a web requests
+
 
 
 
