@@ -181,6 +181,79 @@ export class GifsService {
     - `constructor( private http: HttpClient ) { }`
 
 
+## Json to interfaces
+
+- in [https://quicktype.io/] using the typescript option
+- change interfaces names appropiately
+- Turn the get method using the generic syntax:
+    ```ts
+    this.http.get<SearchResponse>(`${env_dev.api_url}`, { params })
+    ```
+    - import first:
+    ```ts
+    import { SearchResponse } from '../interfaces/gifs.interfaces';
+    ```
+
+- interfaces put the keys but they do not force the data to be like 
+- interfacesin typescript do not force a response to be of certain way
+
+
+## http from angular is an observable
+
+- observable is like a fluxe of information
+
+## send results to a child component from another child component
+
+- spread/flow of data
+    1. ChildComponent sends data and then is received by Service
+    2. Service is injected into the ParentComponent and sends data to the other child
+    3. an Input decorator is created into the final child and obtain data to the html to render using ngFor
+
+- homePage ts
+```ts
+    constructor(private gifsService: GifsService) { }
+    get gifsInHomePage() {
+        return this.gifsService.gifList;
+    }
+```
+- homePage html
+```html
+    <gifs-card-list [gifsInCardList]="gifsInHomePage"></gifs-card-list>
+```
+
+- List ts
+```ts
+    @Input()
+    public gifsInCardList: Gif[] = [];
+```
+- List html
+```html
+    <div *ngFor="let item of gifsInCardList" class="col-md-3 col-sm-6">
+```
+- Service:
+    - in the service a dataStructure is created to handle the data:
+    ```ts
+    public gifList: Gif[] = [];
+    ```
+    - and got the data to the object:
+    ```ts
+    this.http.get<SearchResponse>(`${env_dev.api_url}`, { params })
+    .subscribe( res => {
+        this.gifList = res.data;
+    })
+    ```
+
+
+
+
+
+## misc
+
+- the data will be 
+
+
+
+
 
 
 

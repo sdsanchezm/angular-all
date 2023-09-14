@@ -1,13 +1,20 @@
 <div class="row">
-    <div class="col-md-3 col-sm-6">
+
+    <div *ngFor="let item of gifsInCardList" class="col-md-3 col-sm-6">
 
         <div class="card mb-2 text-center bg-dark">
-            <!-- todo create image  -->
+
+            <img
+            [src]="item.images.downsized_medium.url"
+            [alt]="item.title"
+            class="card-image-top"
+            >
 
             <div class="card-body text-light">
 
+
                 <div class="card-text">
-                    Card
+                    {{ item.title }}
                 </div>
 
             </div>

@@ -1,11 +1,16 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import { Gif, SearchResponse } from '../interfaces/gifs.interfaces';
+
 import { env_dev } from 'src/environment/env.dev';
 
 // this decorator, will make accessible and injectable this class into the html document
 @Injectable({providedIn: 'root'})
 export class GifsService {
+
+    // this is the list of the gifs displaying
+    public gifList: Gif[] = [];
 
     private _tagsHistory: string[] = [];
 
@@ -40,25 +45,30 @@ export class GifsService {
         .set('limit', '2')
 
 
-        this.http.get(`${env_dev.api_url}`, { params })
+        this.http.get<SearchResponse>(`${env_dev.api_url}`, { params })
         .subscribe( res => {
-            console.log(res);
+            console.log( res );
+            this.gifList = res.data;
+            console.log(res.data);
+
+            console.log({gifs: this.gifList});
+
         })
 
     }
 
-    // first way to do it
+    // first way to do it with fetch - will not be used here
     getDataWithFetch1(tag: string): void{
         if (tag.length === 0) return;
         this.cleanedTag(tag);
         fetch(`${env_dev.api_url}?api_key=${env_dev.api_key}&q=${tag}&limit=2`)
         .then( response => response.json() )
         .then( data => console.log(data) );
-
     }
 
     // same as above but with async await and assignment
     // axios can also be used
+    // - will not be used here
     async getDataWithFetch2(tag: string): Promise<void>{
         if (tag.length === 0) return;
         this.cleanedTag(tag);
