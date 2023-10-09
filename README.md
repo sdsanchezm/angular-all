@@ -361,12 +361,12 @@ export class ListComponent {
 
 ### components data interaction
 
+- General interaction:
+
 ~~~mermaid
 graph TD
-    subgraph ComponentDataFlow
-        odx1[ParentComponent]-- Data<br>@Input() --> odx2
-        odx2[ChildComponent]-- Data<br>@Output() --> odx1
-    end
+    odx2[ChildComponent]-- "Data<br>@Output()" --> odx1
+    odx1[ParentComponent]-- "Data<br>@Input()" --> odx2
 ~~~
 
 ## misc
