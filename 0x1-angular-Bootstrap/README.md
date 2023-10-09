@@ -43,6 +43,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 ```
 
 
-### misc
+### Misc
+
+- [https://ng-bootstrap.github.io/#/getting-started]
 - [https://ng-bootstrap.github.io/#/home](https://ng-bootstrap.github.io/#/home)
 - [https://www.freecodecamp.org/news/how-to-add-bootstrap-css-framework-to-an-angular-application/](https://www.freecodecamp.org/news/how-to-add-bootstrap-css-framework-to-an-angular-application/)

@@ -6,6 +6,7 @@
 - initialize a projects (2 ways): 
     - `npm init @angular myApp`
     - `ng new my-app`
+    - ng router can be no, but normally yes.
 
 - help
     - `ng --help`
@@ -44,6 +45,7 @@
 
 - a change in a template, will also change the public property
 - the idea is prioritize the one-way data binding
+
 
 ### private modified in a component
 
@@ -210,6 +212,38 @@ export class ListComponent {
     let character of characterList;
 ```
 
+## HttpClientModule (http get requests)
+
+- importing in a module:
+    - `import { HttpClientModule } from '@angular/common/http';`
+    - and in imports: 
+        ```
+        imports: [
+            BrowserModule,
+            HttpClientModule,
+            GifsModule,
+            SharedModule
+        ]
+        ```
+    - to use it in a service:
+        - `import { HttpClient, HttpParams } from '@angular/common/http';`
+        - `constructor( private http: HttpClient ) { }`
+            ```
+            const params = new HttpParams()
+            .set('api_key', env_dev.api_key)
+            .set('q', tag)
+            .set('limit', '2')
+
+            this.http.get<SearchResponse>(`${env_dev.api_url}`, { params })
+            .subscribe( res => {
+                console.log( res );
+                this.gifList = res.data;
+                console.log(res.data);
+                console.log({gifs: this.gifList});
+            })
+            ```
+
+
 ## Modern Tools for efficient development
 
 - Nodejs
@@ -237,6 +271,7 @@ export class ListComponent {
 
 ## Services
 
+- `ng generate service .\services\data`
 - [https://angular.io/guide/singleton-services]
 - 
      ```ts
@@ -262,6 +297,77 @@ export class ListComponent {
 
 - Source: [https://gist.github.com/Klerith/4816679624c1cb528f8e05d902fd7cff]
 
+
+## Conditional Rendering
+
+### *ngIf
+
+- Different ways
+    ```html
+        <div *ngTemplateOutlet="false ? thenTag : elseTag"></div>
+        <ng-template #thenTag><h2>Text here</h2></ng-template>
+        <ng-template #elseTag><h2>No Text</h2></ng-template>
+
+        <div *ngIf="false; then thenTag1 else elseTag1"></div>
+        <ng-template #thenTag1><h2>Text here</h2></ng-template>
+        <ng-template #elseTag1><h2>No Text</h2></ng-template>
+
+        <div *ngIf="false; else thenTag2">
+            <h2>Something here</h2>
+        </div>
+        <ng-template #thenTag2><h2>Text tag2</h2></ng-template>
+
+        <div *ngIf="true;">
+            <h2>nother Text</h2>
+        </div>
+    ```
+
+### *ngSwitch
+
+- general switch case in angular (with in component: `public color = "red"`)
+    ```html
+    <div [ngSwitch]="color">
+        <div *ngSwitchCase="'red'">Red</div>
+        <div *ngSwitchCase="'blue'">Blue</div>
+        <div *ngSwitchCase="'yellow'">Yellow</div>
+        <div *ngSwitchDefault>Select a color</div>
+    </div>
+    ```
+
+### *ngFor
+
+- options with `public cities = ["praga", "beijing", "toronto", "lima"];`
+    ```html
+    <div *ngFor="let city of cities">
+        {{city}}
+    </div>
+
+    <div *ngFor="let city of cities; index as i">
+        {{i}} {{city}}
+    </div>
+
+    <div *ngFor="let city of cities; first as f; last as l">
+        {{l}} {{city}}
+    </div>
+
+    <div *ngFor="let city of cities; first as f; odd as o">
+        {{o}} {{city}}
+    </div>
+
+    <div *ngFor="let city of cities; first as f; even as e">
+        {{e}} {{city}}
+    </div>
+    ```
+
+### components data interaction
+
+~~~mermaid
+graph TB    
+    subgraph ComponentDataFlow
+        odx1[ParentComponent]-- Data<br>@Input() --> odx2
+        odx2[ChildComponent]-- Data<br>@Output() --> odx1
+    end
+~~~
 
 ## misc
 
