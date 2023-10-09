@@ -300,6 +300,20 @@ export class ListComponent {
 
 ## Conditional Rendering
 
+- component code:
+
+    ```ts
+        public x1: boolean = true;
+        public color = "red";
+        public cities = ["praga", "beijing", "toronto", "lima"];
+        public date1 = new Date();
+        public name1 = "Jamecho Sanc";
+        public object1 = {
+            "username": "tichemaria",
+            "useremail": "tichemaria@example.com"
+        }
+    ```
+
 ### *ngIf
 
 - Different ways
@@ -359,15 +373,44 @@ export class ListComponent {
     </div>
     ```
 
+### Pipes in angular
+
+- code 
+    ```html
+        <h2>{{ 8.345 | number:'1.2-3'}}</h2>
+        <h2>{{ 8.345 | number:'1.4-5'}}</h2>
+        <h2>{{ 8.345 | number:'3.1-2'}}</h2>
+
+        <h2>{{ 0.345 | percent:'2.2-4' }}</h2>
+        <h2>{{ 0.345 | percent:'1.2-4' }}</h2>
+
+        <h2>{{ 0.214 | currency }}</h2>
+        <h2>{{ 1.214 | currency:'EUR': 'code' }}</h2>
+
+        <h2>{{ date1 }}</h2>
+        <h2>{{ date1 | date:'short' }}</h2>
+        <h2>{{ date1 | date:'shortDate' }}</h2>
+        <h2>{{ date1 | date:'shortTime' }}</h2>
+
+        <h2>{{ name1 }}</h2>
+        <h2>{{ name1 | lowercase }}</h2>
+        <h2>{{ name1 | uppercase }}</h2>
+        <h2>{{ name1 | titlecase }}</h2>
+        <h2>{{ name1 | slice:2:11 }}</h2>
+        <h2>{{ object1 | json }}</h2>
+    ```
+
 ### components data interaction
 
 - General interaction:
 
 ~~~mermaid
 graph TD
-    odx2[ChildComponent]-- "Data<br>@Output()" --> odx1
     odx1[ParentComponent]-- "Data<br>@Input()" --> odx2
+    odx2[ChildComponent]-- "Data<br>@Output()" --> odx1
 ~~~
+
+
 
 ## misc
 
