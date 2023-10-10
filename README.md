@@ -298,7 +298,83 @@ export class ListComponent {
 - Source: [https://gist.github.com/Klerith/4816679624c1cb528f8e05d902fd7cff]
 
 
-## Conditional Rendering
+## Bootstrap modal
+
+### First way (in the app component)
+- html
+    ```html
+    <ng-template #longContentModal let-modal>
+        <p>content</p>
+    </ng-template>
+    ```
+- ts
+    ```ts
+        import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+        constructor(private modalService: NgbModal) { }
+
+        @ViewChild('longContentModal') longContentModal: any;
+
+        openLongContentModal() {
+            const modalRef = this.modalService.open(this.longContentModal, { size: 'lg' });
+        }
+    ```
+
+### Second way (in the app component)
+
+- in a component, html
+    ```html
+    <button class="btn btn-primary" (click)="openModal()">Open Modal</button>
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">the Modal</h4>
+            <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>This is the modal content.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Close click')">Close</button>
+            <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Save</button>
+        </div>
+    </ng-template>
+
+
+    ```
+- ts
+    ```ts
+        import { Component, ViewChild } from '@angular/core';
+        import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+        constructor(private modalService: NgbModal) { }
+
+        @ViewChild('content')
+        public content!: any;
+        
+        openModal() {
+        const modalRef = this.modalService.open(this.content, { centered: true });
+        modalRef.result.then(
+            (result) => {
+                console.log(`Closed with: ${result}`);
+            },
+            (reason) => {
+                console.log(`Dismissed with: ${reason}`);
+            }
+        );
+    }
+    ```
+- app module
+    ```ts
+    @NgModule({
+        declarations: [
+            AppComponent,
+            Modal2Component
+        ],
+    ```
+
+## Directives
 
 - component code:
 
@@ -314,7 +390,7 @@ export class ListComponent {
         }
     ```
 
-### *ngIf
+### *ngIf for conditional rendering
 
 - Different ways
     ```html
