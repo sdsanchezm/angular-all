@@ -298,6 +298,25 @@ export class ListComponent {
 - Source: [https://gist.github.com/Klerith/4816679624c1cb528f8e05d902fd7cff]
 
 
+## Bootstrap Install
+
+- `ng new examlabcodes`
+- `ng add @ng-bootstrap/ng-bootstrap`
+- `ng add @ng-bootstrap/ng-bootstrap`
+
+- Install Bootstrap: 
+    ```ts
+        "styles": [
+            "node_modules/bootstrap/dist/css/bootstrap.min.css",
+            "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+            "src/styles.css"
+        ],
+        "scripts": [
+            "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+        ]
+    ```
+
+
 ## Bootstrap modal
 
 ### First way (in the app component)
@@ -487,6 +506,18 @@ graph TD
 ~~~
 
 
+
+## Install ngx-bootstrap
+
+- docs at: [https://valor-software.com/ngx-bootstrap/#/]
+- `ng add bootstrap`
+    - it wil automatically update:
+        - Module: `BrowserAnimationsModule`
+        - angular.json
+        - package.json
+- `npm install font-awesome`
+    - add (to angular.json):
+        - `./node_modules/font-awesome/css/font-awesome.min.css`
 
 ## misc
 
