@@ -1,0 +1,48 @@
+<label>Input: </label>
+<input (keyup.enter)="log3()" #kk3 /><br>
+<label>output: </label>
+<input [value]="kk3Result || 0" #kk3_2 />
+<h5>{{kk3Result || 0}}</h5>
+<hr><br>
+
+<label>Input: </label>
+<input (keyup)="log2(kk2.value)" #kk2 /><br>
+<label>output: </label>
+<input [value]="kk2Result || 0" #kk2_2 />
+<h5>{{kk2Result || 0}}</h5>
+<hr><br>
+
+<label for="pressign enter">Number print in log: </label>
+<input (keyup.enter)="log1(kk1.value)" #kk1 type="number" /><br>
+<hr><br>
+
+<input [value]="number1" type="number" /><br><br>
+<input [value]="number2" type="number" /><br>
+<button (click)="addNumbers(number1, number2)">sum</button>
+<h2>{{resultAdd}}</h2>
+<hr>
+<button (click)="tempPlus1()">plus1</button>
+<button (click)="tempMinus1()">Minus1</button>
+<h1>{{result}}</h1>
+<hr>
+<!-- component 1 -->
+<h1>Child component</h1>
+<app-child-component1 [TemperatureC]="userInput"
+    (TemperatureCOutput)="handleModifiedInput($event)"></app-child-component1>
+<h4>{{userInput}}</h4>
+
+
+<!-- component 2 -->
+<hr><br>
+<app-child-component2 [tempIn]="tempInput" (TempCEmiter)="handleInput($event)"></app-child-component2>
+<h4>{{tempInput}}</h4>
+<hr>
+
+<app-child-component3
+    [temp1]="temp1Input" (temp1Output)="handleTemp1($event)"
+    [temp2]="temp2Input" (temp2Output)="handleTemp2($event)">
+</app-child-component3>
+
+<h4>{{temp1modified}}</h4>
+<h4>{{temp2modified}}</h4>
+parent field: <input type="number" [value]="temp1modified" />

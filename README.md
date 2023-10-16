@@ -507,7 +507,7 @@ graph TD
 
 
 
-## Install ngx-bootstrap
+## Install Bootstrap ngx-bootstrap
 
 - docs at: [https://valor-software.com/ngx-bootstrap/#/]
 - `ng add bootstrap`
@@ -518,6 +518,14 @@ graph TD
 - `npm install font-awesome`
     - add (to angular.json):
         - `./node_modules/font-awesome/css/font-awesome.min.css`
+
+## Install Certificates
+
+- Docs at [https://github.com/FiloSottile/mkcert]
+- NC .Net at 3.28 
+- `choco install mkcert`
+
+
 
 ## misc
 
