@@ -1,0 +1,40 @@
+<input [(ngModel)]="m1_text" /><br>
+<h2>{{m1_text}}</h2>
+<button>m1_text</button>
+
+<hr><br>
+
+<input (keyup.enter)="m2()" /><br>
+<h2>{{m2_text}}</h2>
+<button>m2_text</button>
+
+<hr><br>
+<button (click)="m3()">m3_text</button>
+
+<hr><br>
+<!-- <input (customEvent)="m4_receiver($event)" /><br> -->
+<h2>{{eventData}}</h2>
+<button (click)="m4()" >m4_text</button>
+
+<!-- <input (customEvent)="handleEvent($event)" /> -->
+<p>{{ messageFromChild }}</p>
+
+<hr><br>
+
+<!-- if "[textFromParent]="parentVar" is remove from here, the detail text (in child component) will be shown -->
+<app-child-component [item1]="item1Current" (onCustomAction)="someAction($event)" [textFromParent]="parentVar"></app-child-component>
+        <!-- onCustomAction is the Output() in child component -->
+        <!-- someAction is a method in parent -->
+        <h2>In parent: {{item1Current}}</h2>
+
+    <hr><br>
+
+
+    <div>
+        <h1>Parent Component</h1>
+        <input [(ngModel)]="userInput">
+        <app-child-component2 [txtInNgModel]="userInput" (textInNGModelOutput)="handleModifiedInput($event)" ></app-child-component2>
+        <p>Modified input from child: {{ modifiedUserInput }}</p>
+      </div>
+
+

@@ -1,0 +1,5 @@
+<div>
+    <h2>Child Component</h2>
+    <p>Input from parent: {{ txtInNgModel }}</p>
+    <input [(ngModel)]="txtInNgModel" (ngModelChange)="emit_modified_input()">
+</div>
