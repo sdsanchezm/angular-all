@@ -505,6 +505,92 @@ graph TD
     odx2[ChildComponent]-- "Data<br>@Output()" --> odx1
 ~~~
 
+#### Example of component interaction, data flow and ngModelChange
+
+- Parent Component
+    - parent ts
+        ```ts
+        import { Component } from '@angular/core';
+
+        @Component({
+            selector: 'app-root',
+            templateUrl: './app.component.html'
+        })
+        export class AppComponent {
+
+            constructor() {
+                this.CtempParent = 0;
+                this.FtempParent = 0;
+            }
+
+            CtempParent: number;
+            handleC(n1: number) {
+                const temp = n1 + 2;
+                this.FtempParent = temp;
+            }
+
+            FtempParent: number;
+            handleF(n2: number) {
+                const temp = n2 + 1;
+                this.CtempParent = temp;
+            }
+        }
+        ```
+    - parent html
+    ```ts
+    <h1>Parent Component</h1>
+    <app-com1
+        [Ctemp]="CtempParent" (CtempOutput)="handleC($event)"
+        [Ftemp]="FtempParent" (FtempOutput)="handleF($event)"
+    ></app-com1>
+
+    ```
+
+- Child Component
+    - child html
+    ```ts
+    <p>com1 works!</p>
+    <input type="number" [(ngModel)]="Ctemp" (ngModelChange)="emiter_C2F()" />
+    <input type="number" [(ngModel)]="Ftemp" (ngModelChange)="emiter_F2C()" />
+    ```
+    - child ts
+    ```ts
+    import { Component, EventEmitter, Input, Output } from '@angular/core';
+    @Component({
+        selector: 'app-com1',
+        templateUrl: './com1.component.html'
+    })
+    export class Com1Component {
+
+        @Input() Ctemp: number;
+        @Input() Ftemp: number;
+        @Output() CtempOutput = new EventEmitter();
+        @Output() FtempOutput = new EventEmitter();
+
+        constructor() {
+            this.Ctemp = 0;
+            this.Ftemp = 0;
+        }
+
+        emiter_C2F(){
+            const x1 = this.Ctemp;
+            this.CtempOutput.emit(x1);
+        }
+
+        emiter_F2C(){
+            const x2 = this.Ftemp;
+            this.FtempOutput.emit(x2);
+        }
+    }
+    ```
+- Module:
+    ```ts
+    import { FormsModule } from '@angular/forms';
+    imports: [
+        BrowserModule,
+        FormsModule
+    ],
+    ```
 
 
 ## Install Bootstrap ngx-bootstrap
