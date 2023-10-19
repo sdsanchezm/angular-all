@@ -596,7 +596,7 @@ graph TD
 ## Install Bootstrap ngx-bootstrap
 
 - docs at: [https://valor-software.com/ngx-bootstrap/#/]
-- `ng add bootstrap`
+- `ng add ngx-bootstrap`
     - it wil automatically update:
         - Module: `BrowserAnimationsModule`
         - angular.json
@@ -620,6 +620,46 @@ graph TD
 - `[]` -> attribute
 - `[()]` -> event and attribute at the same time, meaning: 2-way data binding
 - include the keyword `debugger;` in the code to make stop the execution and explore in the browser
+
+- Angular scripts:
+    - `ng g module <name>`
+    - `ng g pipe <name>`
+    - `ng g resolver <name>`
+    - `ng g service <name>`
+    - `ng g service-worker <name>`
+    - `ng g web-worker <name>`
+
+- `ng add ngx-bootstrap  --component dropdowns`
+- doc at [https://valor-software.com/ngx-bootstrap/#/components/dropdowns?tab=api]
+
+
+- Component dry run before executing
+    - `ng g c members/member-list --skip-tests --dry-run`
+    - `ng g c members/member-detail --skip-tests`
+    - `ng new routing-app --routing --defaults`
+    - `ng g m modules/shared --dry-run`:
+        - `CREATE src/app/modules/shared/shared.module.ts`
+    - `ng g m modules/shared --flat --dry-run`:
+        - `CREATE src/app/modules/shared.module.ts`
+
+- toastr
+    - [https://www.npmjs.com/package/ngx-toastr]
+    - ngx-toastr
+    - `npm i ngx-toastr`
+    - `@angular/animations`
+    - in angular.json file:
+        - `"node_modules/ngx-toastr/toastr.css"`
+	
+- installing a guard
+    - `ng g g guards/auth --skip-tests --dry-run`
+
+
+- npm install bootswatch
+    - [https://bootswatch.com/]
+    - `"node_modules/bootswatch/dist/[theme]/bootstrap.css",`
+    - `"node_modules/bootswatch/dist/vapor/bootstrap.css",`
+    - `"node_modules/bootswatch/dist/united/bootstrap.css",`
+
 
 
 
