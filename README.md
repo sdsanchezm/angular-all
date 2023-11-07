@@ -6,7 +6,7 @@
 - initialize a projects (2 ways): 
     - `npm init @angular myApp`
     - `ng new my-app`
-    - ng router can be no, but normally yes.
+    - ng router can be a `no`, but normally yes.
 
 - help
     - `ng --help`
@@ -642,6 +642,9 @@ graph TD
     - `ng g m modules/shared --flat --dry-run`:
         - `CREATE src/app/modules/shared.module.ts`
 
+- No Style, no Test files:
+    + `ng g component shared/pages/homePage --inline-style --skip-tests`
+
 - toastr
     - [https://www.npmjs.com/package/ngx-toastr]
     - ngx-toastr
@@ -661,7 +664,41 @@ graph TD
     - `"node_modules/bootswatch/dist/united/bootstrap.css",`
 
 
+### misc Structure - routingl moduling and components organized structure
 
+- `ng g m pages/rmcharacters --dry-run`
+    - `CREATE src/app/pages/rmcharacters/rmcharacters.module.ts (198 bytes)`
+
+- `ng g c pages/rmcharacters/episode --skip-tests --inline-style --dry-run`
+    - `CREATE src/app/pages/rmcharacters/episode/episode.component.html (22 bytes)`
+    - `CREATE src/app/pages/rmcharacters/episode/episode.component.ts (181 bytes)`
+    - `UPDATE src/app/pages/rmcharacters/rmcharacters.module.ts (286 bytes)`
+
+- `ng g c pages/rmcharacters/location --skip-tests --inline-style --dry-run`
+    - `CREATE src/app/pages/rmcharacters/location/location.component.html (23 bytes)`
+    - `CREATE src/app/pages/rmcharacters/location/location.component.ts (184 bytes)`
+    - `UPDATE src/app/pages/rmcharacters/rmcharacters.module.ts (376 bytes)`
+
+- `ng g m pages/rmcharacters/rmcharactersRouting --flat --dry-run`
+    - `CREATE src/app/pages/rmcharacters/rmcharacters-routing.module.ts (205 bytes)`
+
+
+### misc Structure - routing and moduling organized
+
+- `ng new RoutingApp`
+- `ng g c pages/home`
+- `ng g c pages/about`
+- `ng g m pages/about --dry-run`
+- `ng g m pages/about/aboutRouting --flat --dry-run`
+- `ng g m pages/home --dry-run`
+- `ng g m pages/home/homeRouting --flat --dry-run`
+- `ng g m appRouting --flat --dry-run`
+- `ng g m pages/allPages --dry-run --flat`
+
+- *Some Notes:*
+    - Being carefull with importing and exporting modules is crucial, Components are declared
+    - Double check if modules are being imported twice
+    - the idea was to create and encapsulta componentes, modules and router in one main module to be imported in the app.module
 
 
 
