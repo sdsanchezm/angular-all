@@ -1,0 +1,205 @@
+<div class="bg-body-tertiary offcanvas-md offcanvas-end" tabindex="-1" id="sidebarMenu"
+    aria-labelledby="sidebarMenuLabel">
+
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="sidebarMenuLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body d-md-flex flex-column pt-lg-3 overflow-y-auto">
+
+        <div class="accordion" id="accordionMenu">
+
+            <div class="accordion-item rounded rounded-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Countries
+                    </button>
+                </h2>
+
+                <div id="collapseOne" class="accordion-collapse collapse m-0 p-0 " data-bs-parent="#accordionMenu">
+                    <div class="accordion-body m-0 p-0">
+                        <div class="row p-0 m-0">
+                            <button routerLink="countries/by-country"
+                                class="btn btn-light btn-sm text-start py-2 ps-4 text-primary"><i class="bi bi-geo"></i> Search by Country</button>
+                        </div>
+                        <div class="row p-0 m-0">
+                            <button routerLink="countries/by-region"
+                                class="btn btn-light btn-sm text-start py-2 ps-4 text-primary"><i class="bi bi-map"></i> Search by Region</button>
+                        </div>
+                        <div class="row p-0 m-0">
+                            <button routerLink="countries/by-capital"
+                                class="btn btn-light btn-sm text-start py-2 ps-4 text-primary"><i class="bi bi-geo-alt"></i> Search by Capital</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="accordion-item rounded rounded-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                         RMCharacters
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse m-0 p-0" data-bs-parent="#accordionMenu">
+                    <div class="accordion-body m-0 p-0">
+
+                        <div class="row p-0 m-0">
+                            <button routerLink="rm/episode"
+                                class="btn btn-light btn-sm text-start py-2 ps-4  text-primary"><i class="bi bi-tv-fill"></i> Search by Episode</button>
+                        </div>
+
+                        <div class="row p-0 m-0">
+                            <button routerLink="rm/character"
+                                class="btn btn-light btn-sm text-start py-2 px-4  text-primary"><i class="bi bi-person-bounding-box"></i> Search by Character</button>
+                        </div>
+
+                        <div class="row p-0 m-0">
+                            <button routerLink="rm/location" routerLinkActive="router-link-active"
+                                class="btn btn-light btn-sm text-start py-2 px-4  text-primary"><i class="bi bi-box-seam-fill"></i> Search by Location</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item rounded rounded-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed text-primary" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        News
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse m-0 p-0" data-bs-parent="#accordionMenu">
+                    <div class="accordion-body m-0 p-0">
+
+                        <div class="row p-0 m-0">
+                            <button class="btn btn-light btn-sm text-start py-2 px-3 text-primary"><i class="bi bi-newspaper"></i> View News</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" routerLink="home">
+                    <i class="bi bi-house-fill"></i>
+                    Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
+                    <i class="bi bi-speedometer"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <i class="bi bi-file-earmark"></i>
+                    Orders
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <i class="bi bi-cart3"></i>
+                    Products
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <i class="bi bi-people"></i>
+                    Customers
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <i class="bi bi-bar-chart-fill"></i>
+                    Reports
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <i class="bi bi-puzzle-fill"></i>
+                    Integrations
+                </a>
+            </li>
+        </ul>
+
+        <hr class="my-3">
+
+        <!-- <h6
+            class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+            <span>Data</span>
+            <a class="link-secondary" href="#" aria-label="Add a new report">
+                <i class="bi bi-plus-circle-fill"></i>
+            </a>
+        </h6> -->
+        <ul class="nav flex-column mb-auto">
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                    Current month
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                    Last quarter
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                    Social engagement
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                    Year-end sale
+                </a>
+            </li>
+        </ul>
+
+        <hr class="my-3">
+
+        <ul class="nav flex-column mb-auto">
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                    Settings
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                    Account
+                </a>
+            </li>
+
+        </ul>
+
+        <hr class="my-3">
+
+        <ul class="nav flex-column mb-auto">
+
+            <li class="nav-item">
+                <a routerLink="about" class="nav-link d-flex align-items-center gap-2">
+                    <i class="bi bi-book"></i>
+                    About
+                </a>
+            </li>
+
+        </ul>
+
+
+    </div>
+</div>

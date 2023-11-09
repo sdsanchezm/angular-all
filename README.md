@@ -694,11 +694,15 @@ graph TD
 - `ng g m pages/home/homeRouting --flat --dry-run`
 - `ng g m appRouting --flat --dry-run`
 - `ng g m pages/allPages --dry-run --flat`
+- `ng g s pages/countries/_services/service --flat --dry-run --skip-tests`
+- `ng g pipe app/pages/countries/_pipes/gini2019 --dry-run --skip-tests`
+- `ng g c app/pages/rmcharacters/characterPage --skip-tests --inline-style --dry-run`
+- `ng g c shared/footer --skip-tests --inline-style --dry-run`
+
 
 - *Some Notes:*
     - Being carefull with importing and exporting modules is crucial, Components are declared
     - Double check if modules are being imported twice
     - the idea was to create and encapsulta componentes, modules and router in one main module to be imported in the app.module
-
 
 

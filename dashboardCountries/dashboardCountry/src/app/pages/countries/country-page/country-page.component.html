@@ -1,0 +1,96 @@
+<p><br><br></p>
+<ng-template #loading>
+    <div class="alert alert-info text-center">
+        <div class="spinner-border text-info" role="status"></div> <span class="text-info"> Loading...</span>
+    </div>
+</ng-template>
+
+
+
+
+<div *ngIf="countryData; else loading">
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <h6 class="text-secondary ">Official Name:</h6>
+            <h3 class="fw-bold">{{ countryData.name.common }}</h3>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-12 col-md-4">
+        <h3>Flag</h3>
+        <img [src]="countryData?.flags?.svg" [alt]="" class="img-thumbnail">
+    </div>
+
+    <div class="col">
+        <h3>Details: </h3>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <strong>Common Name: </strong>{{ countryData?.name?.common }}
+            </li>
+            <li class="list-group-item">
+                <strong>Official Name: </strong>{{ countryData?.name?.official }}
+            </li>
+            <li class="list-group-item">
+                <strong>Capital Name: </strong>{{ countryData?.capital }}
+            </li>
+            <li class="list-group-item">
+                <strong>Population: </strong>{{ countryData?.population | number }}
+            </li>
+            <li class="list-group-item">
+                <strong>CCA3 Code: </strong>{{ countryData?.cca3 }}
+            </li>
+            <li class="list-group-item">
+                <strong>CCA2 Code: </strong>{{ countryData?.cca2 }}
+            </li>
+            <li class="list-group-item">
+                <strong>Top Level Domain: </strong>{{ countryData?.tld }}
+            </li>
+        </ul>
+    </div>
+
+    <div class="row mt-2">
+
+        <div class="col-md-4 col-12">
+            <h3>Translations</h3>
+            <div class="d-flex flex-wrap">
+                <span class="badge bg-primary m-1">{{ countryData?.translations?.['deu']?.common }}</span>
+                <span class="badge bg-primary m-1">{{ countryData?.translations?.['spa']?.common }}</span>
+                <span class="badge bg-primary m-1">{{ countryData?.translations?.['deu']?.common }}</span>
+                <span class="badge bg-primary m-1">{{ countryData?.translations?.['fra']?.common }}</span>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-12 mt-4">
+            <h3>Additional Details </h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Common Name: </strong>{{ countryData?.independent }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Region: </strong>{{ countryData?.region }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Subregion: </strong>{{ countryData?.subregion }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Start Of Week: </strong>{{ countryData?.startOfWeek }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Timezones: </strong>{{ countryData?.timezones }}
+                </li>
+                <li class="list-group-item">
+                    <strong>FIFA: </strong>{{ countryData?.fifa }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Gini: </strong>{{ countryData?.gini | gini2019 | number:'2.1-1' }}
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>

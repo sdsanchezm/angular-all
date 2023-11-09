@@ -1,0 +1,95 @@
+<h1 class="mt-4">RM Episodes</h1>
+
+<ng-template #loading>
+    <div class="alert alert-info text-center">
+        <div class="spinner-border text-info" role="status"></div> <span class="text-info"> Loading...</span>
+    </div>
+</ng-template>
+
+<!-- <div class="col">
+    <div class="row">
+        <div *ngFor="let item of episodes" class="card m-2 shadow col-md-3">
+            <div class="card-body">
+                <h5 class="card-title">Card title {{ item }}</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Button</a>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="col">
+    <div class="row">
+        <button *ngFor="let item of episodes; let i = index" class="btn btn-primary m-1 shadow btn1-width"
+            (click)="getDataFromEpisode((i+1))">
+            {{ i + 1 }}
+        </button>
+    </div>
+</div>
+
+<hr class="text-primary my-4">
+
+
+<div class="col p-0 m-0 rounded-0" *ngIf="episodeData">
+    <h2>Details</h2>
+
+    <div class="row p-0 m-0 rounded-0">
+
+        <div class="card p-0 m-1 rounded-0 col-lg-2">
+            <div class="card-header bg-primary rounded-0 text-light text-center">Number</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-center">{{ episodeData.id }}</li>
+            </ul>
+        </div>
+
+        <div class="card p-0 m-1 rounded-0 col-lg-2">
+            <div class="card-header bg-primary rounded-0 text-light text-center">Name</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-center">{{ episodeData.name }}</li>
+            </ul>
+        </div>
+
+        <div class="card p-0 m-1 rounded-0 col-lg-2">
+            <div class="card-header bg-primary rounded-0 text-light text-center">Season</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-center">{{ episodeData.episode }}</li>
+            </ul>
+        </div>
+
+        <div class="card p-0 m-1 rounded-0 col-lg-2">
+            <div class="card-header bg-primary rounded-0 text-light text-center">No. of Characters</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-center"> {{ episodeData.characters.length | number }} </li>
+            </ul>
+        </div>
+
+        <div class="card p-0 m-1 rounded-0 col-lg-2">
+            <div class="card-header bg-primary rounded-0 text-light text-center">On Air at:</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-center"> {{ episodeData.air_date | date }} </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<hr class="text-primary my-4">
+
+<div class="col p-0 m-0 rounded-0" *ngIf="episodeData">
+
+    <h2>Characters</h2>
+
+    <div class="row p-0 m-0 rounded-0">
+
+        <div *ngFor="let item of charactersData" class="card p-0 m-1 rounded-0 col-lg-2">
+            <div [routerLink]="[ '/rm/c', item.id ]">
+                <div class="card-header bg-primary rounded-0 text-light text-center">{{ item.name }}</div>
+                <ul class="list-group list-group-flush">
+                    <img [src]="item.image" class="card-img-top" alt="...">
+                    <li class="list-group-item text-center bg-primary"></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>

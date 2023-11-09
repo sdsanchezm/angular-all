@@ -1,0 +1,59 @@
+<p><br><br></p>
+<ng-template #loading>
+    <div class="alert alert-info text-center">
+        <div class="spinner-border text-info" role="status"></div> <span class="text-info"> Loading...</span>
+    </div>
+</ng-template>
+
+<div *ngIf="characterData">
+
+    <div >
+
+        <!-- <div *ngIf="characterData; else loading"> -->
+        <div>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <h6 class="text-secondary ">Official Name:</h6>
+                    <h3 class="fw-bold">{{ characterData.name }}</h3>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-12 col-md-4">
+                <h3>Pic</h3>
+                <img [src]="characterData.image" [alt]="" class="img-thumbnail">
+            </div>
+
+            <div class="col">
+                <h3>Details: </h3>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Name: </strong>{{ characterData.name }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Status: </strong>{{ characterData.status }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Species: </strong>{{ characterData.species }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Type: </strong>{{ characterData.type }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Gender: </strong>{{ characterData.gender }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Origin: </strong>{{ characterData.origin.name }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Location: </strong>{{ characterData.location.name }}
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>

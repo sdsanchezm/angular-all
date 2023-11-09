@@ -1,0 +1,52 @@
+<!-- <div *ngFor="let item of charactersData"> -->
+<!-- Display character data here -->
+<p><br></p>
+<p><br></p>
+<div id="top"></div>
+<h2>Characters - Page {{ currentPage }}</h2>
+
+<div class="mt-4">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <button (click)="firstPage()" class="btn btn-outline-primary mx-1">First</button>
+                <button (click)="prevPage()" [disabled]="!infoData?.prev" class="btn btn-primary mx-1">Previous</button>
+            </li>
+            <!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+            <li class="page-item">
+                <button (click)="nextPage()" [disabled]="!infoData?.next" class="btn btn-primary mx-1">Next</button>
+                <button (click)="lastPage()" class="btn btn-outline-primary mx-1">Last</button>
+            </li>
+            <li>
+                <div class="input-group ms-4">
+                    <select #selOption class="form-select text-primary border-primary" aria-label="Go to a page">
+                        <option selected>Go To</option>
+                        <option *ngFor="let i of pagesArray;" [value]="i">Page {{ i }}</option>
+                    </select>
+                    <button class="btn btn-primary" type="button" (click)="goToPage(selOption.value)">Go</button>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="mb-4">
+    <div class="row p-0 m-0 rounded-0">
+
+        <div *ngFor="let item of charactersData" class="card p-0 m-1 rounded-0 col-lg-2">
+            <div [routerLink]="[ '/rm/c', item.id ]">
+                <div class="card-header bg-primary rounded-0 text-light text-center"><span
+                        class="badge bg-primary text-light floating-badge">{{item.id}} </span> {{ item.name }}</div>
+                <ul class="list-group list-group-flush">
+                    <img [src]="item.image" class="card-img-top" alt="...">
+                    <li class="list-group-item text-center bg-primary"></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
