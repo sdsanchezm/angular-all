@@ -157,29 +157,29 @@
 ## ngClass usage
 
 - Example code
-```ts
-    <li *ngFor="
-    let character of characterList;
-    let i = index;
-    let isFirst = first;
-    let isLast = last;
-    let isEven = even;
-    let isOdd = odd;
-    " class="list-group-item"
-    [ngClass]="{
-        'list-group-item-success': isLast,
-        'list-group-item-primary': isEven
-}">
-    <!-- " class="list-group-item {{ i === 0 ? 'list-group-item-success' : '' }}"> -->
-    <!-- " class="list-group-item list-group-item-success"> -->
-        <span class="text-primary">{{ i+1 }}. </span>
-        <span class="fw-bold">{{character.name}} -> {{character.power}}</span>
-        <span class="text-secondary"> is first?: {{ isFirst }}</span>
-        <span class="text-secondary"> is last?: {{ isLast }}</span>
-        <span class="text-secondary"> is even?: {{ isEven }}</span>
-        <span class="text-secondary"> is odd?: {{ isOdd }}</span>
-    </li>
-```
+    ```ts
+        <li *ngFor="
+        let character of characterList;
+        let i = index;
+        let isFirst = first;
+        let isLast = last;
+        let isEven = even;
+        let isOdd = odd;
+        " class="list-group-item"
+        [ngClass]="{
+            'list-group-item-success': isLast,
+            'list-group-item-primary': isEven
+        }">
+        <!-- " class="list-group-item {{ i === 0 ? 'list-group-item-success' : '' }}"> -->
+        <!-- " class="list-group-item list-group-item-success"> -->
+            <span class="text-primary">{{ i+1 }}. </span>
+            <span class="fw-bold">{{character.name}} -> {{character.power}}</span>
+            <span class="text-secondary"> is first?: {{ isFirst }}</span>
+            <span class="text-secondary"> is last?: {{ isLast }}</span>
+            <span class="text-secondary"> is even?: {{ isEven }}</span>
+            <span class="text-secondary"> is odd?: {{ isOdd }}</span>
+        </li>
+    ```
 
 
 ## @Input() Example
@@ -187,37 +187,36 @@
 - `@Input()` this decorator, indicates that the component can receive a property named: "characterList"
 - `@Input('asd')` there also can be a name here
 - example code
+    ```ts
+    export class ListComponent {
 
-```ts
-export class ListComponent {
-
-    @Input()
-    public characterList: Character[] = [
-        {
-            name: 'Jamecho',
-            power: 5000
-        }
-    ]
-}
-```
+        @Input()
+        public characterList: Character[] = [
+            {
+                name: 'Jamecho',
+                power: 5000
+            }
+        ]
+    }
+    ```
 
 - to use it in a component: (tag: `app-dbz-list`)
 
-```ts
-<app-dbz-list [characterList]="characters"> </app-dbz-list>
-```
+    ```ts
+    <app-dbz-list [characterList]="characters"> </app-dbz-list>
+    ```
 - `character` comes from here:
-```ts
-<li *ngFor="
-    let character of characterList;
-```
+    ```typescript
+    <li *ngFor="
+        let character of characterList;
+    ```
 
 ## HttpClientModule (http get requests)
 
 - importing in a module:
     - `import { HttpClientModule } from '@angular/common/http';`
     - and in imports: 
-        ```
+        ```typescript
         imports: [
             BrowserModule,
             HttpClientModule,
@@ -227,8 +226,9 @@ export class ListComponent {
         ```
     - to use it in a service:
         - `import { HttpClient, HttpParams } from '@angular/common/http';`
-        - `constructor( private http: HttpClient ) { }`
-            ```
+        - code: `constructor( private http: HttpClient ) { }`
+        - 
+            ```typescript
             const params = new HttpParams()
             .set('api_key', env_dev.api_key)
             .set('q', tag)
